@@ -1,0 +1,8 @@
+export CLASSPATH=$CLASSPATH:/usr/share/openjfx/lib
+export VISUAL=vim
+
+PATH=$PATH:/home/kaustubh/Documents/Application/energia-1.8.10E23
+PATH=$PATH:/home/kaustubh/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin
+PATH=$PATH:/home/kaustubh/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-4-b40a506/bin
+PATH=$PATH:/home/kaustubh/Documents/Application/blender-2.82a-linux64/
+PATH=$PATH://home/kaustubh/Documents/Application/flutter/bin/

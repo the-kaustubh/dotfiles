@@ -1,0 +1,29 @@
+#!/bin/bash
+
+bold="\[\033[01m\]"
+normal="\[\033[0m\]"
+
+red="\[\033[31m\]"
+green="\[\033[32m\]"
+purple="\[\033[35m\]" # 35
+blue="\[\033[34m\]"
+cyan="\[\033[36m\]"
+n="\[\033[37m\]"
+
+prompt="$n\u"
+
+prompt+="$bold$cyan \w$normal"
+
+# Traditional Way
+# source /etc/bash_completion
+# GIT_PS1_SHOWDIRTYSTATE=true
+# GIT_PS1_SHOWUNTRACKEDFILES=true
+# prompt+="$green \$(__git_ps1)$normal"
+
+# prompt+="$bold\$([[ \$(git ls-files -o 2>/dev/null | wc -l) -gt 0 ]] && echo $red || echo $green )"
+prompt+="$bold\$([[ \$(git status 2>/dev/null | wc -l) -gt 4 ]] && echo $red || echo $green )"
+prompt+=" \$(git status 2>/dev/null | head -n 1 | cut -d' ' -f 3 )$normal "
+
+prompt+="\n$unknown $ $normal"
+
+export PS1="$prompt"
