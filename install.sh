@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 bashf=$(ls -lAh | awk '{print $9}' | grep "^\.b")
 
