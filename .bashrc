@@ -128,4 +128,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
+
+login_change='vim /usr/share/gnome-shell/theme/ubuntu.css'
 eval "$(thefuck --alias)"
+
+bind -r '\C-s'
+stty -ixon

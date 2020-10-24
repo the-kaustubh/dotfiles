@@ -9,6 +9,7 @@ alias jfxCom='javac --module-path /usr/share/openjfx/lib --add-modules=javafx.ba
 alias jfxRun='java --module-path /usr/share/openjfx/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web'
 alias pyserver='python3 -m http.server 9000'
 alias p3='python3'
+alias fcat='highlight -O ansi'
 
 alias  ..='cd ..'
 alias ...='cd ../..'
@@ -53,4 +54,6 @@ alias dow='cd ~/Downloads'
 alias bashrc='vim ~/.bashrc'
 alias rm='rm -i'
 alias mv='mv -i'
-
+alias sl='echo "Steam Locomotive"'
+alias get_idf='. ~/Documents/C/esp/esp-idf/export.sh'
+alias arduino='/home/kaustubh/Documents/Application/arduino-1.8.12/arduino'
