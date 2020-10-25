@@ -35,7 +35,7 @@ function gitsync() {
 	fi
 
 	git add .
-	git commit -m '$1'
+	git commit -m "$1"
 	git push "$2" master
 	return 0
 }
