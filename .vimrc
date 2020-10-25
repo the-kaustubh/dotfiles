@@ -5,7 +5,7 @@ set autoindent
 set nowrap
 set tabstop=2
 set shiftwidth=2
-set expandtab
+"set expandtab
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
