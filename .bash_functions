@@ -36,6 +36,6 @@ function gitsync() {
 
 	git add .
 	git commit -m '$1'
-	git push '$2' master
+	git push "$2" master
 	return 0
 }
