@@ -74,10 +74,20 @@ augroup END
 
 " ------------------------------------------ "
 " ------------------plugins----------------- "
-packadd! dracula
-packadd! rainbow
-colorscheme dracula
-
-let g:rainbow_active = 1
+call plug#begin()
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'junegunn/fzf.vim'
+Plug 'sirver/ultisnips'
+Plug 'kana/vim-surround'
+Plug 'oblitum/rainbow'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'posva/vim-vue'
+Plug 'tpope/vim-fugitive'
+call plug#end()
 
 nmap <F8> :TagbarToggle<CR>
+let g:rainbow_active = 1
+colorscheme dracula
