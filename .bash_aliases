@@ -34,6 +34,7 @@ PATH=$PATH:/home/kaustubh/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.
 PATH=$PATH:/home/kaustubh/.arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/2.5.0-4-b40a506/bin
 PATH=$PATH:/home/kaustubh/Documents/Application/blender-2.82a-linux64/
 PATH=$PATH:/home/kaustubh/Documents/Application/flutter/bin/
+PATH=$PATH:/home/kaustubh/Documents/Application/arduino-cli/
 ANDROID_SDK_ROOT=/home/kaustubh/Android/Sdk
 
 PI3_IP='192.168.43.146'
@@ -58,3 +59,5 @@ alias sl='echo "Steam Locomotive"'
 alias get_idf='. ~/Documents/C/esp/esp-idf/export.sh'
 alias arduino='/home/kaustubh/Documents/Application/arduino-1.8.12/arduino'
 alias tmux='tmux -2'
+alias vi='nvim'
+alias vim='nvim'
