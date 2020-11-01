@@ -135,3 +135,5 @@ eval "$(thefuck --alias)"
 
 bind -r '\C-s'
 stty -ixon
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
