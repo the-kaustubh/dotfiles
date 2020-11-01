@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# bash related files
 bashf=$(ls -lAh | awk '{print $9}' | grep "^\.b")
 
 for b in $bashf
@@ -8,4 +9,4 @@ do
 done
 
 ln -s $(pwd)/.vimrc ~/.vimrc
-
+ls -s $(pwd)/.tmux.conf ~/.tmux.conf
