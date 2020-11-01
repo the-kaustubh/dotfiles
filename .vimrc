@@ -34,7 +34,7 @@ noremap - ddp
 noremap _ ddkP
 nnoremap Q <Nop>
 nnoremap <c-s> :w<CR>
-inoremap <c-s> <Esc>:w<CR>a
+inoremap <c-s> <Esc>:w<CR>
 nnoremap <c-q> :q<CR>
 nnoremap <leader>l :tabnext<cr>
 nnoremap <leader>h :tabprevious<cr>
@@ -44,8 +44,6 @@ vnoremap <leader>s' xi''<Esc>P
 vnoremap <leader>s( xi()<Esc>P
 vnoremap <leader>s{ xi{}<Esc>P
 vnoremap <leader>s< xi<><Esc>P
-
-iabbrev <buffer> {} {<return>}<esc>O 
 
 augroup js_grp
 	autocmd!
@@ -75,19 +73,26 @@ augroup END
 " ------------------------------------------ "
 " ------------------plugins----------------- "
 call plug#begin()
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'junegunn/fzf.vim'
-Plug 'sirver/ultisnips'
-Plug 'kana/vim-surround'
-Plug 'oblitum/rainbow'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline'
-Plug 'posva/vim-vue'
-Plug 'tpope/vim-fugitive'
+	Plug 'dracula/vim', { 'as': 'dracula' }
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+	Plug 'sirver/ultisnips'
+	Plug 'kana/vim-surround'
+	Plug 'oblitum/rainbow'
+	Plug 'scrooloose/nerdtree'
+	Plug 'scrooloose/nerdcommenter'
+	Plug 'majutsushi/tagbar'
+	Plug 'vim-airline/vim-airline'
+	Plug 'posva/vim-vue'
+	Plug 'tpope/vim-fugitive'
+	Plug 'diepm/vim-rest-console'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'vimwiki/vimwiki'
 call plug#end()
 
 nmap <F8> :TagbarToggle<CR>
 let g:rainbow_active = 1
 colorscheme dracula
+
+" ------------ After plugin mappings --------- "
+nnoremap <c-c> <nop>
