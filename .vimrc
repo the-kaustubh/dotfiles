@@ -24,7 +24,7 @@ set ruler
 set scrolloff=6
 
 " Search for tag file, go up one directory until $HOME 
-set tags=./tags,tags;$HOME
+" set tags=./tags,tags;$HOME
 set wildmenu
 colorscheme default
 
@@ -79,8 +79,6 @@ call plug#begin()
 	Plug 'sirver/ultisnips'
 	Plug 'kana/vim-surround'
 	Plug 'oblitum/rainbow'
-	" Plug 'scrooloose/nerdtree'
-	" Plug 'scrooloose/nerdcommenter'
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-airline/vim-airline'
 	Plug 'posva/vim-vue'
@@ -89,6 +87,8 @@ call plug#begin()
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'vimwiki/vimwiki'
 call plug#end()
+	" Plug 'scrooloose/nerdtree'
+	" Plug 'scrooloose/nerdcommenter'
 
 nmap <F8> :TagbarToggle<CR>
 let g:rainbow_active = 1
@@ -96,3 +96,4 @@ colorscheme dracula
 
 " ------------ After plugin mappings --------- "
 nnoremap <c-c> <nop>
+let b:vrc_horizontal_split = 1
