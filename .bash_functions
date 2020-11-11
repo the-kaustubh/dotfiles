@@ -29,13 +29,14 @@ function gitsync() {
 		return 1
 	fi
 
-  if [[ -z $2 ]]; then
-		echo "Provide a remote"
-		return 1
-	fi
-
 	git add .
 	git commit -m "$1"
-	git push "$2" master
+
+  if [[ -z $2 ]]; then
+		echo "Did not find any remote. Exiting..."
+		return 0
+	else
+		git push "$2" master
+	fi
 	return 0
 }

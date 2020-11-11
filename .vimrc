@@ -15,6 +15,7 @@ noremap <c-c> <Nop>
 set nocompatible 
 
 syntax enable
+filetype on
 filetype plugin on
 set path+=**
 set complete+=k~/.vim/keywords
@@ -81,11 +82,13 @@ call plug#begin()
 	Plug 'oblitum/rainbow'
 	Plug 'majutsushi/tagbar'
 	Plug 'vim-airline/vim-airline'
-	Plug 'posva/vim-vue'
 	Plug 'tpope/vim-fugitive'
 	Plug 'diepm/vim-rest-console'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'vimwiki/vimwiki'
+	Plug 'storyn26383/vim-vue'
+	Plug 'mattn/emmet-vim'
+	Plug 'tpope/vim-commentary'
 call plug#end()
 	" Plug 'scrooloose/nerdtree'
 	" Plug 'scrooloose/nerdcommenter'
@@ -97,3 +100,5 @@ colorscheme dracula
 " ------------ After plugin mappings --------- "
 nnoremap <c-c> <nop>
 let b:vrc_horizontal_split = 1
+let g:vue_pre_processors = []
+autocmd BufRead,BufNewFile * syntax enable

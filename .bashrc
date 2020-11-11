@@ -113,9 +113,9 @@ if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
 
-# if [ -f ~/.fancy_prompt ]; then
-    # . ~/.fancy_prompt
-# fi
+if [ -f ~/.bash_variables ]; then
+    . ~/.bash_variables
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -135,3 +135,4 @@ eval "$(thefuck --alias)"
 
 bind -r '\C-s'
 stty -ixon
+echo "\"When stupidity is considered patriotism, it is unsafe to be intelligent.\" - Isaac Asimov"
