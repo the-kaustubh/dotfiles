@@ -77,7 +77,7 @@ call plug#begin()
 	Plug 'dracula/vim', { 'as': 'dracula' }
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'sirver/ultisnips'
+	" Plug 'sirver/ultisnips'
 	Plug 'kana/vim-surround'
 	Plug 'oblitum/rainbow'
 	Plug 'majutsushi/tagbar'
@@ -89,7 +89,10 @@ call plug#begin()
 	Plug 'storyn26383/vim-vue'
 	Plug 'mattn/emmet-vim'
 	Plug 'tpope/vim-commentary'
+	Plug 'eslint/eslint'
+	Plug 'rust-lang/rust.vim'
 call plug#end()
+	" Plug 'valloric/youcompleteme'
 	" Plug 'scrooloose/nerdtree'
 	" Plug 'scrooloose/nerdcommenter'
 
