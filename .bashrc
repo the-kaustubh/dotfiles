@@ -135,4 +135,4 @@ eval "$(thefuck --alias)"
 
 bind -r '\C-s'
 stty -ixon
-echo "\"When stupidity is considered patriotism, it is unsafe to be intelligent.\" - Isaac Asimov"
+# echo "\"When stupidity is considered patriotism, it is unsafe to be intelligent.\" - Isaac Asimov"
