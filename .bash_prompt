@@ -22,8 +22,7 @@ prompt+="$bold$cyan \w$normal"
 
 # prompt+="$bold\$([[ \$(git ls-files -o 2>/dev/null | wc -l) -gt 0 ]] && echo $red || echo $green )"
 prompt+="$bold\$([[ \$(git status 2>/dev/null | wc -l) -gt 5 ]] && echo $red || echo $green )"
-[[ $(git status 2>/dev/null | wc -w) -eq 3 ]] && x=4 || x=3 
-prompt+=" \$(git status 2>/dev/null | head -n 1 | cut -d' ' -f $x )$normal "
+prompt+=" \$(git status 2>/dev/null | head -n 1 | sed 's/at //' | cut -d' ' -f 3 )$normal "
 
 prompt+="\n$unknown $ $normal"
 
