@@ -5,7 +5,7 @@ normal="\[\033[0m\]"
 
 red="\[\033[31m\]"
 green="\[\033[32m\]"
-purple="\[\033[35m\]" # 35
+purple="\[\033[35m\]"
 blue="\[\033[34m\]"
 cyan="\[\033[36m\]"
 n="\[\033[37m\]"
@@ -22,7 +22,8 @@ prompt+="$bold$cyan \w$normal"
 
 # prompt+="$bold\$([[ \$(git ls-files -o 2>/dev/null | wc -l) -gt 0 ]] && echo $red || echo $green )"
 prompt+="$bold\$([[ \$(git status 2>/dev/null | wc -l) -gt 5 ]] && echo $red || echo $green )"
-prompt+=" \$(git status 2>/dev/null | head -n 1 | cut -d' ' -f 3 )$normal "
+[[ $(git status 2>/dev/null | wc -w) -eq 3 ]] && x=4 || x=3 
+prompt+=" \$(git status 2>/dev/null | head -n 1 | cut -d' ' -f $x )$normal "
 
 prompt+="\n$unknown $ $normal"
 
