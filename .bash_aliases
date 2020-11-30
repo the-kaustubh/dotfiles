@@ -60,3 +60,6 @@ alias get_idf='. ~/Documents/C/esp/esp-idf/export.sh'
 alias tmux='tmux -2 -u'
 alias vi='nvim'
 alias vim='nvim'
+
+alias cpd='echo "cd $(pwd)" | xclip'
+alias gti='git'
