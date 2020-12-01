@@ -102,6 +102,8 @@ colorscheme dracula
 
 " ------------ After plugin mappings --------- "
 nnoremap <c-c> <nop>
+nmap <leader>gs :G<CR>
+
 let b:vrc_horizontal_split = 1
 let g:vue_pre_processors = []
 autocmd BufRead,BufNewFile * syntax enable
