@@ -102,7 +102,10 @@ colorscheme dracula
 " ------------ After plugin mappings --------- "
 nnoremap <c-c> <nop>
 nmap <leader>gs :G<CR>
+nmap <leader>g; :diffget //3<CR>
+nmap <leader>ga :diffget //2<CR>
 
 let b:vrc_horizontal_split = 1
 let g:vue_pre_processors = []
+
 autocmd BufRead,BufNewFile * syntax enable
