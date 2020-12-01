@@ -40,3 +40,14 @@ function gitsync() {
 	fi
 	return 0
 }
+
+function zipit() {
+	if [[ -z $1  ]]; then
+		echo "Provide directory name"
+		return 1
+	fi
+
+	tar -cvf $1.zip $1
+	return 0
+
+}
