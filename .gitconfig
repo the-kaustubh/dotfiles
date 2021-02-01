@@ -1,0 +1,9 @@
+[user]
+	email = kaustubh.murumkar@gmail.com
+	name = Kaustubh Murumkar
+[core]
+	editor = nvim
+	autocrlf = input
+	whitespace = cr-at-eol
+[help]
+	autocorrect = 1
