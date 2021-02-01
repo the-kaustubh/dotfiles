@@ -9,4 +9,5 @@ do
 done
 
 ln -s $(pwd)/.vimrc ~/.vimrc
-ls -s $(pwd)/.tmux.conf ~/.tmux.conf
+ln -s $(pwd)/.tmux.conf ~/.tmux.conf
+ln -s $(pwd)/.gitconfig ~/.gitconfig
