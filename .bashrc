@@ -1,6 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.  # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
+# for examples 
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -100,22 +99,13 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
 
+[ -f ~/.bash_functions ] && . ~/.bash_functions
 
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
+[ -f ~/.bash_prompt ] && . ~/.bash_prompt
 
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-fi
-
-if [ -f ~/.bash_variables ]; then
-    . ~/.bash_variables
-fi
+[ -f ~/.bash_variables ] && . ~/.bash_variables
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -136,3 +126,7 @@ eval "$(thefuck --alias)"
 bind -r '\C-s'
 stty -ixon
 # echo "\"When stupidity is considered patriotism, it is unsafe to be intelligent.\" - Isaac Asimov"
+ export DENO_INSTALL="/$HOME/.deno"
+ export PATH="$DENO_INSTALL/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

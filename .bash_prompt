@@ -12,18 +12,44 @@ n="\[\033[37m\]"
 
 prompt="$n\u"
 
-prompt+="$bold$cyan \w$normal"
+prompt+="$bold$cyan \w $normal"
 
-# Traditional Way
-# source /etc/bash_completion
-# GIT_PS1_SHOWDIRTYSTATE=true
-# GIT_PS1_SHOWUNTRACKEDFILES=true
-# prompt+="$green \$(__git_ps1)$normal"
+function docker_containers() {
+	containers="$(expr $(docker ps | wc -l &) - 1)"
+	if [ $(($containers)) -ge 1 ]; then
+		echo -ne " $containers \U1F40B"
+	fi
+	unset containers
+}
 
-# prompt+="$bold\$([[ \$(git ls-files -o 2>/dev/null | wc -l) -gt 0 ]] && echo $red || echo $green )"
-prompt+="$bold\$([[ \$(git status 2>/dev/null | wc -l) -gt 5 ]] && echo $red || echo $green )"
-prompt+=" \$(git status 2>/dev/null | head -n 1 | sed 's/at //' | cut -d' ' -f 3 )$normal "
+function dockinit() {
+	export dockered=1
+	return 0
+}
+
+function git_repos() {
+	# is a repo?
+	if [ $(git status 2>&1 | wc -l) -ne 1 ]; then
+		# is repo clean?
+		if [ $(git status 2>/dev/null | wc -l ) -gt 5 ]; then
+			echo -ne "\033[31m"
+		else
+			echo -ne "\033[32m"
+		fi
+		# fork symbol
+		echo -ne '\uE0A0 '
+		repo="$(git status 2>/dev/null | head -n 1 | sed 's/detached //' | cut -d' ' -f 3 )"
+		echo -n $repo
+	fi
+}
+
+# git info
+prompt+="$bold\$(git_repos)"
+
+# docker info
+prompt+="$blue$bold\$(docker_containers)$normal"
 
 prompt+="\n$unknown $ $normal"
 
 export PS1="$prompt"
+

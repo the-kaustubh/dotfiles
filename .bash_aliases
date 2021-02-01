@@ -63,3 +63,6 @@ alias vim='nvim'
 
 alias cpd='echo "cd $(pwd)" | xclip'
 alias gti='git'
+alias ci='nvim'
+alias cim='nvim'
+
