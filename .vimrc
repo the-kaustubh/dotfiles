@@ -18,7 +18,8 @@ syntax enable
 filetype on
 filetype plugin on
 set path+=**
-set complete+=k~/.vim/keywords
+set cpt+=k~/.vim/keywords
+set cpt+=k/home/kaustubh/Documents/C/pico/pico-sdk/tags
 set lazyredraw
 set laststatus=2
 set ruler
