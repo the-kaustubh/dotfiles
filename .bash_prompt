@@ -15,7 +15,12 @@ prompt="$n\u"
 prompt+="$bold$cyan \w $normal"
 
 function docker_containers() {
+	if ! command -v docker &>/dev/null
+	then
+		return 0
+	fi
 	containers="$(expr $(docker ps | wc -l &) - 1)"
+
 	if [ $(($containers)) -ge 1 ]; then
 		echo -ne " $containers \U1F40B"
 	fi
