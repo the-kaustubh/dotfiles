@@ -27,6 +27,16 @@ function docker_containers() {
 	unset containers
 }
 
+function get_rpi_tmep() {
+	if ! command -v vcgencmd &>/dev/null
+	then
+		return 0
+	fi
+	temperature_str="$(vcgencmd measure_temp)"
+	temperature="$(echo temperature_str | cut -d'=' -f 2)"
+	echo -n " $temperature_str "
+}
+
 function dockinit() {
 	export dockered=1
 	return 0
@@ -52,7 +62,10 @@ function git_repos() {
 prompt+="$bold\$(git_repos)"
 
 # docker info
-prompt+="$blue$bold\$(docker_containers)$normal"
+# prompt+="$blue$bold\$(docker_containers)$normal"
+
+# rpi temperature
+prompt+="$normal$(get_rpi_tmep)"
 
 prompt+="\n$unknown $ $normal"
 
