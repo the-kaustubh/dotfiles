@@ -27,6 +27,19 @@ function docker_containers() {
 	unset containers
 }
 
+function get_rpi_throttle() {
+	if ! command -v vcgencmd &>/dev/null
+	then
+		return 0
+	fi
+	# temperature_str="$()"
+	# temperature="$(echo "$temperature_str" | cut -d'=' -f 2)"
+	throttle="$(vcgencmd get_throttled | cut -d'=' -f 2 | sed "s/0x//" )"
+	if [ $throttle -ne 0 ]; then
+			echo -ne "\U26A1 "
+	fi
+}
+
 function get_rpi_tmep() {
 	if ! command -v vcgencmd &>/dev/null
 	then
@@ -72,6 +85,9 @@ prompt+="$bold\$(git_repos)"
 
 # rpi temperature
 prompt+="$normal$(get_rpi_tmep)$normal"
+
+# rpi Throttle
+prompt+="$normal$(get_rpi_throttle)$normal"
 
 prompt+="$normal\n$unknown $ $normal"
 
