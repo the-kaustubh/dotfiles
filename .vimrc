@@ -19,7 +19,6 @@ filetype on
 filetype plugin on
 set path+=**
 set cpt+=k~/.vim/keywords
-set cpt+=k/home/kaustubh/Documents/C/pico/pico-sdk/tags
 set lazyredraw
 set laststatus=2
 set ruler
@@ -27,8 +26,7 @@ set scrolloff=4
 
 " Search for tag file, go up one directory until $HOME 
 " set tags=./tags,tags;$HOME
-set wildmenu
-colorscheme default
+" set wildmenu colorscheme default
 
 let mapleader="\<space>"
 
@@ -55,6 +53,8 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'metakirby5/codi.vim'
 Plug 'elzr/vim-json'
+Plug 'neoclide/coc.nvim'
+" Plug 'valloric/youcompleteme'
 call plug#end()
 " Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/nerdtree'
@@ -100,6 +100,7 @@ augroup c_grp
 	autocmd FileType c nnoremap <buffer> <leader>c I//<esc>
 	autocmd FileType c :iabbrev <buffer> if_ if<space>()<left> 
 	autocmd FileType c :iabbrev <buffer> {} {<return>}<esc>O 
+	autocmd FileType c :set cpt+=k/home/kaustubh/Documents/C/pico/pico-sdk/tags
 augroup END
 
 augroup py_grp

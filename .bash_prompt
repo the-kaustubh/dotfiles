@@ -47,9 +47,9 @@ function git_repos() {
 prompt+="$bold\$(git_repos)"
 
 # docker info
-prompt+="$blue$bold\$(docker_containers)$normal"
+# prompt+="$blue$bold\$(docker_containers)$normal"
 
-prompt+="\n$unknown $ $normal"
+prompt+="$normal\n$unknown $ $normal"
 
 export PS1="$prompt"
 
