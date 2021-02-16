@@ -1,14 +1,13 @@
 #!/bin/bash
 
-bold="\[\033[01m\]"
-normal="\[\033[0m\]"
+bold="$(tput bold)"
+normal="$(tput sgr0)"
 
-red="\[\033[31m\]"
-green="\[\033[32m\]"
-purple="\[\033[35m\]"
-blue="\[\033[34m\]"
-cyan="\[\033[36m\]"
-n="\[\033[37m\]"
+red="$(tput setaf 1)"
+green="$(tput setaf 82)"
+purple="$(tput setaf 127)"
+blue="$(tput setaf 105)"
+cyan="$(tput setaf 45)"
 
 prompt="$n\u"
 
