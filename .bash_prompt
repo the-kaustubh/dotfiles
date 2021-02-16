@@ -6,7 +6,7 @@ normal="$(tput sgr0)"
 
 # Colors
 red="$(tput setaf 161)"
-green="$(tput setaf 151)"
+green="$(tput setaf 156)"
 purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"

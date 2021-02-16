@@ -94,19 +94,6 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-
-[ -f ~/.bash_functions ] && . ~/.bash_functions
-
-[ -f ~/.bash_prompt ] && . ~/.bash_prompt
-
-[ -f ~/.bash_variables ] && . ~/.bash_variables
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -118,14 +105,32 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
-
-login_change='vim /usr/share/gnome-shell/theme/ubuntu.css'
-
+# remove Ctrl+S casing terminal to stop
 bind -r '\C-s'
 stty -ixon
+
 # echo "\"When stupidity is considered patriotism, it is unsafe to be intelligent.\" - Isaac Asimov"
- export DENO_INSTALL="/$HOME/.deno"
- export PATH="$DENO_INSTALL/bin:$PATH"
+export DENO_INSTALL="/$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# fzf config
+export FZF_TMUX=1
+
+export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+
+export FZF_CTRL_R_OPTS="--sort --exact"
+
+# Customization 
+
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
+
+[ -f ~/.bash_functions ] && . ~/.bash_functions
+
+[ -f ~/.bash_prompt ] && . ~/.bash_prompt
+
+[ -f ~/.bash_variables ] && . ~/.bash_variables
+
+[ -f ~/.bindings.bash ] && . ~/.bindings.bash
+
