@@ -1,13 +1,21 @@
 #!/bin/bash
 
+# Styling
 bold="$(tput bold)"
 normal="$(tput sgr0)"
 
+# Colors
 red="$(tput setaf 161)"
 green="$(tput setaf 151)"
 purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"
+
+# Icons
+fork="\uE0A0 "
+dockerWhale="\U1F40B "
+bolt="\U26A1 "
+thermometer="\U1f321 "
 
 prompt="$n\u"
 
@@ -21,7 +29,7 @@ function docker_containers() {
 	containers="$(expr $(docker ps | wc -l &) - 1)"
 
 	if [ $(($containers)) -ge 1 ]; then
-		echo -ne " $containers \U1F40B"
+		echo -ne " $containers $dockerWhale"
 	fi
 	unset containers
 }
@@ -31,33 +39,24 @@ function get_rpi_throttle() {
 	then
 		return 0
 	fi
-	# temperature_str="$()"
-	# temperature="$(echo "$temperature_str" | cut -d'=' -f 2)"
 	throttle="$(vcgencmd get_throttled | cut -d'=' -f 2 | sed "s/0x//" )"
 	if [ $throttle -ne 0 ]; then
-			echo -ne "\U26A1 "
+			echo -ne "$bolt "
 	fi
 }
 
-function get_rpi_tmep() {
+function get_rpi_temp() {
 	if ! command -v vcgencmd &>/dev/null
 	then
 		return 0
 	fi
-	# temperature_str="$()"
-	# temperature="$(echo "$temperature_str" | cut -d'=' -f 2)"
 	temperature="$(vcgencmd measure_temp | cut -d'=' -f 2 | sed "s/'C//" )"
 	if [ 1 -eq $(echo "$temperature < 45" | bc -l)   ]; then
-			echo -ne "\033[31m"
+			echo -ne "$green"
 	else
-			echo -ne "\033[32m"
+			echo -ne "$red"
 	fi
-	echo -ne " \U1f321 $temperature "
-}
-
-function dockinit() {
-	export dockered=1
-	return 0
+	echo -ne " $thermometer $temperature "
 }
 
 function git_repos() {
@@ -65,12 +64,12 @@ function git_repos() {
 	if [ $(git status 2>&1 | wc -l) -ne 1 ]; then
 		# is repo clean?
 		if [ $(git status 2>/dev/null | wc -l ) -gt 5 ]; then
-			echo -ne "\033[31m"
+			echo -ne "$red"
 		else
-			echo -ne "\033[32m"
+			echo -ne "$green"
 		fi
 		# fork symbol
-		echo -ne '\uE0A0 '
+		echo -ne "$fork"
 		repo="$(git status 2>/dev/null | head -n 1 | sed 's/detached //' | cut -d' ' -f 3 )"
 		echo -n $repo
 	fi
@@ -79,16 +78,15 @@ function git_repos() {
 # git info
 prompt+="$bold\$(git_repos)"
 
-# docker info
-# prompt+="$blue$bold\$(docker_containers)$normal"
+if command -v vcgencmd &>/dev/null
+then
+	# rpi temperature
+	prompt+="$normal$(get_rpi_temp)$normal"
+	# rpi Throttle
+	prompt+="$normal$(get_rpi_throttle)$normal"
+fi
 
-# rpi temperature
-prompt+="$normal$(get_rpi_tmep)$normal"
-
-# rpi Throttle
-prompt+="$normal$(get_rpi_throttle)$normal"
-
-prompt+="$normal\n$unknown $ $normal"
+prompt+="$normal\n $ "
 
 export PS1="$prompt"
 
