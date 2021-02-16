@@ -3,8 +3,8 @@
 bold="$(tput bold)"
 normal="$(tput sgr0)"
 
-red="$(tput setaf 1)"
-green="$(tput setaf 82)"
+red="$(tput setaf 161)"
+green="$(tput setaf 153)"
 purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"
