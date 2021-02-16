@@ -4,7 +4,7 @@ bold="$(tput bold)"
 normal="$(tput sgr0)"
 
 red="$(tput setaf 161)"
-green="$(tput setaf 153)"
+green="$(tput setaf 151)"
 purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"
