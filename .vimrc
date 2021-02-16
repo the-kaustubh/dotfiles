@@ -53,7 +53,10 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'metakirby5/codi.vim'
 Plug 'elzr/vim-json'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 " Plug 'valloric/youcompleteme'
 call plug#end()
 " Plug 'valloric/youcompleteme'
@@ -100,8 +103,8 @@ augroup c_grp
 	autocmd FileType c nnoremap <buffer> <leader>c I//<esc>
 	autocmd FileType c :iabbrev <buffer> if_ if<space>()<left> 
 	autocmd FileType c :iabbrev <buffer> {} {<return>}<esc>O 
-	autocmd FileType c :set cpt+=k/home/kaustubh/Documents/C/pico/pico-sdk/tags
 augroup END
+	" autocmd FileType c :set cpt+=k/home/kaustubh/Documents/C/pico/pico-sdk/tags
 
 augroup py_grp
 	autocmd!
