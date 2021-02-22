@@ -45,7 +45,7 @@ PI4_IP='192.168.43.41'
 PI4_ADDR="http://$PI4_IP"
 alias sshpi4='ssh pi@$PI4_IP'
 
-export EDITOR=vim
+export EDITOR=nvim
 
 alias c='cd ~/Documents/C'
 alias js='cd ~/Documents/JS'
