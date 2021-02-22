@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # bash related files
-bashf=$(ls -lAh | awk '{print $9}' | grep "^\.b")
+allfiles=$(git ls-files | sed '/ignore/d' | sed '/install/d')
 
-for b in $bashf
+for b in $allfiles
 do
+  echo "Removing $b ..."
+  rm -f ~/$b 
+  echo "Removed $b"
+  echo "Creating symlink to $(pwd)/$b"
   ln -s $(pwd)/$b ~/$b
 done
 
-ln -s $(pwd)/.vimrc ~/.vimrc
-ln -s $(pwd)/.tmux.conf ~/.tmux.conf
-ln -s $(pwd)/.gitconfig ~/.gitconfig
-ln -s $(pwd)/.bindings.bash ~/.bindings.bash
+echo "Installed dotfiles"
