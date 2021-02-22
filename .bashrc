@@ -113,12 +113,12 @@ stty -ixon
 export DENO_INSTALL="/$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # fzf config
+export FZF_DEFAULT_COMMAND='find -L'
+
 export FZF_TMUX=1
 
-export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+export FZF_CTRL_T_OPTS="--exit-0"
 
 export FZF_CTRL_R_OPTS="--sort --exact"
 
@@ -133,4 +133,6 @@ export FZF_CTRL_R_OPTS="--sort --exact"
 [ -f ~/.bash_variables ] && . ~/.bash_variables
 
 [ -f ~/.bindings.bash ] && . ~/.bindings.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
