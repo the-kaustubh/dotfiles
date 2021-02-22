@@ -1,15 +1,30 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# bash related files
-allfiles=$(git ls-files | sed '/ignore/d' | sed '/install/d')
+# Styling
+bold="$(tput bold)"
+normal="$(tput sgr0)"
+
+# Colors
+red="$(tput setaf 161)"
+green="$(tput setaf 156)"
+purple="$(tput setaf 127)"
+blue="$(tput setaf 105)"
+cyan="$(tput setaf 45)"
+
+allfiles=$(git ls-files | sed '/ignore/d' | sed '/install/d' | sed '/styling/d' )
 
 for b in $allfiles
 do
-  echo "Removing $b ..."
-  rm -f ~/$b 
-  echo "Removed $b"
-  echo "Creating symlink to $(pwd)/$b"
+  if [[ -f ~/$b ]]
+  then
+    echo "Removing $bold$b$normal ..."
+    rm -f ~/$b 
+    echo "Removed $bold$b$normal"
+  fi
+  echo "Creating symlink to $bold$(pwd)/$b$normal"
+  echo ""
   ln -s $(pwd)/$b ~/$b
 done
 
-echo "Installed dotfiles"
+echo ""
+echo "$green$bold Installed dotfiles$normal"
