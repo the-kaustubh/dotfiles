@@ -5,7 +5,7 @@ set autoindent
 set nowrap
 set tabstop=2
 set shiftwidth=2
-"set expandtab
+set expandtab
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
@@ -47,7 +47,7 @@ Plug 'storyn26383/vim-vue'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'eslint/eslint'
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -57,7 +57,6 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-" Plug 'valloric/youcompleteme'
 call plug#end()
 " Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/nerdtree'

@@ -1,5 +1,5 @@
 export CLASSPATH=$CLASSPATH:/usr/share/openjfx/lib
-export VISUAL=vim
+export VISUAL=nvim
 
 PATH=$PATH:/home/kaustubh/Documents/Application/energia-1.8.10E23
 PATH=$PATH:/home/kaustubh/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin
