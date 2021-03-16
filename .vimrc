@@ -81,6 +81,7 @@ nnoremap <silent> <leader><c-b> :NERDTreeToggle<cr>
 nnoremap <silent> <leader>o :only<cr>
 nnoremap <silent> <cr> :nohls<cr>
 
+
 nnoremap <silent> <leader>= gg=G
 
 autocmd StdinReadPre * let s:std_in=1
@@ -88,28 +89,17 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 augroup js_grp
 	autocmd!
-	autocmd FileType javascript nnoremap <buffer> <leader>c I//<esc>
-	autocmd FileType javascript vnoremap <buffer> <leader>c :norm 0i// <return>
-	autocmd FileType javascript vnoremap <buffer> <leader>uc :norm 0xxx<return> 
-	autocmd FileType javascript :iabbrev <buffer> if_ if<space>()<left> 
-	autocmd FileType javascript :iabbrev <buffer> ( ()<left>
-	" )  breaks the syn highlighting
+  autocmd FileType javascript nnoremap <silent> <c-l> :!eslint --fix %<cr>
 augroup END
 
 
 augroup c_grp
 	autocmd!
-	autocmd FileType c nnoremap <buffer> <leader>c I//<esc>
-	autocmd FileType c :iabbrev <buffer> if_ if<space>()<left> 
-	autocmd FileType c :iabbrev <buffer> {} {<return>}<esc>O 
 augroup END
 	" autocmd FileType c :set cpt+=k/home/kaustubh/Documents/C/pico/pico-sdk/tags
 
 augroup py_grp
 	autocmd!
-	autocmd FileType python vnoremap <buffer> <leader>c :norm 0i# <return>
-	autocmd FileType python vnoremap <buffer> <leader>uc :norm 0xx<return> 
-	autocmd FileType python nnoremap <buffer> <leader>c I#<esc>
 augroup END
 
 nmap <F8> :TagbarToggle<CR>

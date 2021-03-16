@@ -15,7 +15,8 @@ alias  ..='cd ..'
 alias ...='cd ../..'
 alias  .3='cd ../../..'
 alias  .4='cd ../../../..'
-alias  .5='cd ../../../../..'alias htdocs='cd /var/www/html'
+alias  .5='cd ../../../../..'
+alias htdocs='cd /var/www/html'
 
 #alias topcommands='history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head'
 #source /opt/Xilinx/14.7/ISE_DS/settings64.sh
@@ -53,16 +54,16 @@ alias js='cd ~/Documents/JS'
 alias docs='cd ~/Documents'
 alias dow='cd ~/Downloads'
 alias bashrc='vim ~/.bashrc'
-alias rm='rm -i'
-alias mv='mv -i'
 alias sl='echo "Steam Locomotive"'
 alias get_idf='. ~/Documents/C/esp/esp-idf/export.sh'
 alias tmux='tmux -2 -u'
+
 alias vi='nvim'
 alias vim='nvim'
-
-alias cpd='echo "cd $(pwd)" | xclip'
-alias gti='git'
 alias ci='nvim'
 alias cim='nvim'
+
+alias gti='git'
+alias gst='git status'
+alias gl='git log'
 

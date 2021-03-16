@@ -7,3 +7,5 @@
 	whitespace = cr-at-eol
 [help]
 	autocorrect = 1
+[alias]
+	root = rev-parse --show-toplevel
