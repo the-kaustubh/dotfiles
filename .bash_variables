@@ -8,5 +8,8 @@ PATH=$PATH:/home/kaustubh/Documents/Application/blender-2.82a-linux64/
 PATH=$PATH:/home/kaustubh/Documents/Application/arduino-1.8.12/
 PATH=$PATH:/home/kaustubh/Documents/Application/flutter/bin/
 PATH=$PATH:/home/kaustubh/.arduino15/packages/esp32/tools/esptool_py/2.6.1/
+PATH=$PATH:/home/kaustubh/arduino-cli/bin/
 
 PICO_SDK_PATH=/home/kaustubh/Documents/C/pico/pico-sdk/
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
+
