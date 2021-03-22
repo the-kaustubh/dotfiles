@@ -66,4 +66,6 @@ alias cim='nvim'
 alias gti='git'
 alias gst='git status'
 alias gl='git log'
+alias gr='cd $(git root)'
 
+alias ardcli='arduino-cli'
