@@ -17,10 +17,6 @@ dockerWhale="\U1F40B "
 bolt="\U26A1 "
 thermometer="\U1f321 "
 
-prompt="$n\u"
-
-prompt+="$bold$cyan \w $normal"
-
 function docker_containers() {
 	if ! command -v docker &>/dev/null
 	then
@@ -32,6 +28,16 @@ function docker_containers() {
 		echo -ne " $containers $dockerWhale"
 	fi
 	unset containers
+}
+
+function get_directory() {
+  depth="$(pwd | tr / "\n" | wc -l)"
+  if [ $depth -gt 4 ]
+  then
+    echo -n $(pwd | tr / "\n" | tail -n 2 | tr "\n" "/")
+  else
+    echo -n $(pwd | sed "s|/home/$(whoami)|~|")
+  fi
 }
 
 function get_rpi_throttle() {
@@ -74,6 +80,11 @@ function git_repos() {
 		echo -n $repo
 	fi
 }
+
+# Initialise prompt
+prompt="$n\u"
+
+prompt+="$bold$cyan \$(get_directory) $normal"
 
 # git info
 prompt+="$bold\$(git_repos)"
