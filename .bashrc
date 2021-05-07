@@ -136,3 +136,4 @@ export FZF_CTRL_R_OPTS="--sort --exact"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+[ -f ~/.color_scheme ] && source ~/.color_scheme

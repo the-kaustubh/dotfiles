@@ -9,3 +9,6 @@
 	autocorrect = 1
 [alias]
 	root = rev-parse --show-toplevel
+[credential "https://github.com"]
+	helper = 
+	helper = ! auth git-credential

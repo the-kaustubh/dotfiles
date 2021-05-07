@@ -13,3 +13,6 @@ PATH=$PATH:/home/kaustubh/arduino-cli/bin/
 PICO_SDK_PATH=/home/kaustubh/Documents/C/pico/pico-sdk/
 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
 
+GOROOT=/usr/local/go
+GOPATH=~/.go
+PATH=$PATH:$GOROOT/bin:$GOPATH/bin

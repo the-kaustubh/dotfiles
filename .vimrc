@@ -35,6 +35,7 @@ let mapleader="\<space>"
 call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'sirver/ultisnips'
+Plug 'briancollins/vim-jst'
 Plug 'kana/vim-surround'
 Plug 'oblitum/rainbow'
 Plug 'majutsushi/tagbar'
@@ -57,6 +58,8 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'lervag/vimtex'
+Plug 'fatih/vim-go'
 call plug#end()
 " Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/nerdtree'
@@ -122,4 +125,31 @@ if exists('g:loaded_webdevicons')
 	call webdevicons#refresh()
 endif
 
+" --------------------GO LANG
+let g:go_diagnostics_enabled = 0
+let g:go_metalinter_enabled = []
+
+" don't jump to errors after metalinter is invoked
+let g:go_jump_to_error = 0
+
+" run go imports on file save
+let g:go_fmt_command = "goimports"
+
+" automatically highlight variable your cursor is on
+let g:go_auto_sameids = 0
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+
+" ------------------GO LANG
+
 autocmd BufRead,BufNewFile * syntax enable
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+" au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+" au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'

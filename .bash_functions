@@ -51,3 +51,7 @@ function zipit() {
 	return 0
 
 }
+
+function mkcd() {
+  mkdir $1; cd $1;
+}
