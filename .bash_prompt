@@ -5,7 +5,7 @@ bold="$(tput bold)"
 normal="$(tput sgr0)"
 
 # Colors
-red="$(tput setaf 161)"
+red="$(tput setaf 160)"
 green="$(tput setaf 156)"
 purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
@@ -75,9 +75,9 @@ function git_repos() {
 	if [ $(git status 2>&1 | wc -l) -ne 1 ]; then
 		# is repo clean?
 		if [ $(git status 2>/dev/null | wc -l ) -gt 5 ]; then
-			echo -ne "$red"
+			echo -ne " $red"
 		else
-			echo -ne "$green"
+			echo -ne " $green"
 		fi
 		# fork symbol
 		echo -ne "$fork"
@@ -87,9 +87,9 @@ function git_repos() {
 }
 
 # Initialise prompt
-prompt="$n\u"
+prompt="$n\u "
 
-prompt+="$bold$cyan \$(get_directory) $normal"
+prompt+="$bold$cyan\$(get_directory)$normal"
 
 # git info
 prompt+="$bold\$(git_repos)$normal"
