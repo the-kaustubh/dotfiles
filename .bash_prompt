@@ -17,6 +17,11 @@ dockerWhale="\U1F40B "
 bolt="\U26A1 "
 thermometer="\U1f321 "
 
+function get_ip() {
+  ip="$(hostname -I | cut -d' ' -f 1 )"
+  echo -ne " $ip"
+}
+
 function docker_containers() {
 	if ! command -v docker &>/dev/null
 	then
@@ -87,7 +92,7 @@ prompt="$n\u"
 prompt+="$bold$cyan \$(get_directory) $normal"
 
 # git info
-prompt+="$bold\$(git_repos)"
+prompt+="$bold\$(git_repos)$normal"
 
 if command -v vcgencmd &>/dev/null
 then
@@ -96,6 +101,8 @@ then
 	# rpi Throttle
 	prompt+="$normal$(get_rpi_throttle)$normal"
 fi
+
+prompt+="$bold$(get_ip)"
 
 prompt+="$normal\n $ "
 
