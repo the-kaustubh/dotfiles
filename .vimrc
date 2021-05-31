@@ -14,6 +14,7 @@ noremap <Down> <Nop>
 set nocompatible 
 
 set noswapfile
+set encoding=UTF-8
 syntax enable
 filetype on
 filetype plugin on
@@ -33,8 +34,6 @@ let mapleader="\<space>"
 " ------------------------------------------ "
 " ------------------plugins----------------- "
 call plug#begin()
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'sirver/ultisnips'
 Plug 'briancollins/vim-jst'
 Plug 'kana/vim-surround'
 Plug 'oblitum/rainbow'
@@ -44,7 +43,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'diepm/vim-rest-console'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vimwiki/vimwiki'
-Plug 'storyn26383/vim-vue'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'eslint/eslint'
@@ -60,10 +58,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
+Plug 'neoclide/coc-vetur'
+Plug 'posva/vim-vue'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'morhetz/gruvbox'
 call plug#end()
+
+" Old Plugins
 " Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/nerdcommenter'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 
 noremap - ddp
 noremap _ ddkP
@@ -107,7 +113,8 @@ augroup END
 
 nmap <F8> :TagbarToggle<CR>
 let g:rainbow_active = 1
-colorscheme dracula
+" colorscheme dracula
+colorscheme gruvbox
 
 " ------------ After plugin mappings --------- "
 nnoremap <c-c> <nop>
@@ -126,18 +133,13 @@ if exists('g:loaded_webdevicons')
 endif
 
 " --------------------GO LANG
-let g:go_diagnostics_enabled = 0
+let g:go_diagnostics_enabled = 1
 let g:go_metalinter_enabled = []
 
 " don't jump to errors after metalinter is invoked
 let g:go_jump_to_error = 0
-
-" run go imports on file save
 let g:go_fmt_command = "goimports"
-
-" automatically highlight variable your cursor is on
 let g:go_auto_sameids = 0
-
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -151,5 +153,6 @@ let g:go_highlight_generate_tags = 1
 
 autocmd BufRead,BufNewFile * syntax enable
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-" au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-" au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls']
+    \ }
