@@ -7,5 +7,5 @@ bind -r '"\C-t"'
 bind '"\C-t": transpose-chars'
 
 # Bind Ctrl-i to fuzzy finder
-# Bad idea bind -x '"\C-i": fzf'
+bind -x '"\C-g": fzf'
 

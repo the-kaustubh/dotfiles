@@ -109,7 +109,6 @@ fi
 bind -r '\C-s'
 stty -ixon
 
-# echo "\"When stupidity is considered patriotism, it is unsafe to be intelligent.\" - Isaac Asimov"
 export DENO_INSTALL="/$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
