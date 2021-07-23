@@ -8,21 +8,23 @@ normal="$(tput sgr0)"
 red="$(tput setaf 160)"
 green="$(tput setaf 156)"
 purple="$(tput setaf 127)"
+white="$(tput setaf 255)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"
+# dracula_pink="$(tput setaf 198)"
 
 # Icons
 fork="\uE0A0 "
 dockerWhale="\U1F40B "
 bolt="\U26A1 "
-thermometer="\U1f321 "
+thermometer="\U1F321 "
 
 function get_ip() {
   ip="$(hostname -I | cut -d' ' -f 1 )"
-  echo -ne " $ip"
+  echo -ne "$ip"
 }
 
-function docker_containers() {
+function get_docker() {
 	if ! command -v docker &>/dev/null
 	then
 		return 0
@@ -102,7 +104,7 @@ then
 	prompt+="$normal$(get_rpi_throttle)$normal"
 fi
 
-prompt+="$bold$(get_ip)"
+prompt+="$white$bold $(get_ip)"
 
 prompt+="$normal\n $ "
 
