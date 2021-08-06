@@ -27,7 +27,7 @@ alias jfxCom='javac --module-path /usr/share/openjfx/lib --add-modules=javafx.ba
 alias jfxRun='java --module-path /usr/share/openjfx/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web'
 
 alias sshpi3='ssh pi@$PI3_IP'
-alias sshpi4='ssh pi@$PI4_IP' 
+alias sshpi4='ssh pi@$PI4_IP'
 alias bashrc='vim ~/.bashrc'
 alias sl='echo "Steam Locomotive"'
 alias get_idf='. ~/Documents/C/esp/esp-idf/export.sh'
@@ -41,6 +41,7 @@ alias cim='nvim'
 alias gti='git'
 alias gst='git status'
 alias gl='git log'
+alias gd='git diff'
 alias gr='cd $(git root)'
 
 alias ardcli='arduino-cli'

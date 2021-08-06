@@ -60,6 +60,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'wellle/tmux-complete.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'dbeniamine/cheat.sh-vim'
+Plug 'nvim-treesitter/playground'
+Plug 'neovim/nvim-lspconfig'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
 " Snippets
