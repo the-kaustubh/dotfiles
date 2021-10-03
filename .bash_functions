@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ex () 
+ex ()
 {
  if [ -f $1 ]; then
   case $1 in
@@ -19,11 +19,6 @@ function jmpfile () {
 }
 
 function gitsync() {
-  if [[ -z $1 ]]; then
-		echo "Provide a commit message"
-		return 1
-	fi
-
   if [[ -z $1 ]]; then
 		echo "Provide a commit message"
 		return 1

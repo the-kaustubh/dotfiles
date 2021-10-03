@@ -1,5 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.  # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples 
+# for examples
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -121,7 +121,7 @@ export FZF_CTRL_T_OPTS="--exit-0"
 
 export FZF_CTRL_R_OPTS="--sort --exact"
 
-# Customization 
+# Customization
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -131,3 +131,8 @@ export FZF_CTRL_R_OPTS="--sort --exact"
 [ -f ~/.bash_variables ] && . ~/.bash_variables
 [ -f ~/.bindings.bash ] && . ~/.bindings.bash
 [ -f ~/.color_scheme ] && source ~/.color_scheme
+
+PATH=$PATH:/home/kaustubh/Downloads/go/bin
+export GOROOT="/home/kaustubh/Downloads/go/"
+export GOPATH="/home/kaustubh/Documents/Go/"
+export GO111MODULE="auto"

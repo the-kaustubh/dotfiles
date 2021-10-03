@@ -1,6 +1,6 @@
 [user]
 	email = kaustubh.murumkar@gmail.com
-	name = Kaustubh Murumkar
+  name = Kaustubh Murumkar
 [core]
 	editor = nvim
 	autocrlf = input
@@ -10,5 +10,4 @@
 [alias]
 	root = rev-parse --show-toplevel
 [credential "https://github.com"]
-	helper = 
 	helper = ! auth git-credential

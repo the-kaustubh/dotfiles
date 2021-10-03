@@ -20,7 +20,7 @@ alias c='cd ~/Documents/C'
 alias js='cd ~/Documents/JS'
 alias docs='cd ~/Documents'
 alias dow='cd ~/Downloads'
-alias Go='cd ~/Documents/Go'
+alias Go='cd ~/Documents/Go/src'
 
 export CLASSPATH=$CLASSPATH:/usr/share/openjfx/lib
 alias jfxCom='javac --module-path /usr/share/openjfx/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web'
@@ -42,6 +42,8 @@ alias gti='git'
 alias gst='git status'
 alias gl='git log'
 alias gd='git diff'
+alias gco='git checkout'
 alias gr='cd $(git root)'
 
 alias ardcli='arduino-cli'
+alias code='codium'
