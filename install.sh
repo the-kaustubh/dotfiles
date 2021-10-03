@@ -11,14 +11,14 @@ purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"
 
-allfiles=$(git ls-files | sed '/ignore/d' | sed '/install/d' | sed '/styling/d' )
+allfiles=$(git ls-files | sed '/ignore/d' | sed '/install/d' | sed '/styling/d' | sed '/README/d' )
 
 for b in $allfiles
 do
   if [[ -f ~/$b ]]
   then
     echo "Removing $bold$b$normal ..."
-    rm -f ~/$b 
+    rm -f ~/$b
     echo "Removed $bold$b$normal"
   fi
   echo "Creating symlink to $bold$(pwd)/$b$normal"
