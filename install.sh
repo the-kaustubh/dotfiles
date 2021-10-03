@@ -17,9 +17,9 @@ for b in $allfiles
 do
   if [[ -f ~/$b ]]
   then
-    echo "Removing $bold$b$normal ..."
+    echo " Removing $bold$b$normal ..."
     rm -f ~/$b
-    echo "Removed $bold$b$normal"
+    echo " Removed $bold$b$normal"
   fi
   echo "Creating symlink to $bold$(pwd)/$b$normal"
   echo ""
