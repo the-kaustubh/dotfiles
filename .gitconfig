@@ -1,6 +1,7 @@
 [user]
 	email = kaustubh.murumkar@gmail.com
   name = Kaustubh Murumkar
+	signingkey = 2040042768BDA0E1
 [core]
 	editor = nvim
 	autocrlf = input
