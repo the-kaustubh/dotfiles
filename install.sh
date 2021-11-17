@@ -103,6 +103,7 @@ then
     curl https://sh.rustup.rs -sSf | sh
     source $HOME/.cargo/env
     echo " $tick Installed Rust"
+    PATH=$PATH:/home/$USER/.cargo/bin
   else
     echo "Skipping rust and dependencies. Using built-in defaults"
   fi
