@@ -16,14 +16,23 @@ link="🔗 "
 package="📦 "
 trash="🗑️ "
 sparkles="✨ "
+questionMark="❓ "
 
 branch=$(git branch | grep "*" | awk '{print $2}')
 allfiles=$(git ls-tree -r $branch --name-only | sed '/ignore/d' | sed '/install/d' | sed '/styling/d' | sed '/README/d' )
 
+function allDependencies() {
+    echo "$bold The dotfiles have following dependencies: exa fd bat zoxide $normal"
+    checkDependency ajeetdsouza/zoxide
+    checkDependency sharkdp/bat
+    checkDependency sharkdp/fd
+    checkDependency ogham/exa
+}
+
 function createSymlinks() {
   for b in $allfiles
   do
-    confirmYN "Do you want to install $blue$bold$b$normal : [y/N]"
+    confirmYN "  Do you want to install $blue$bold$b$normal$questionMark: [y/N]"
     if [ $? -eq 0 ]
     then
       if [[ -f ~/$b ]]
@@ -88,20 +97,18 @@ function confirmYN() {
 if ! command -v rustc >/dev/null
 then
   echo "There are some dependencies that need Rust compiler"
-  confirmYN "Do you want to install$cyan$bold rust$normal? : [y/N]"
+  confirmYN "Do you want to install$cyan$bold rust$normal$questionMark : [y/N]"
   if [ $? -eq 0 ]; then
     echo "Installing rust"
     curl https://sh.rustup.rs -sSf | sh
     source $HOME/.cargo/env
     echo " $tick Installed Rust"
-    echo "$bold The dotfiles have following dependencies: exa fd bat zoxide $normal"
-    checkDependency ajeetdsouza/zoxide
-    checkDependency sharkdp/bat
-    checkDependency sharkdp/fd
-    checkDependency ogham/exa
   else
     echo "Skipping rust and dependencies. Using built-in defaults"
   fi
+else
+  echo " $tick Rust is already present looking for other dependencies"
+  allDependencies
 fi
 createSymlinks
 echo; echo "$green$bold $sparkles Installed dotfiles and rust dependencies$normal"
