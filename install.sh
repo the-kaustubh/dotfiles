@@ -91,8 +91,8 @@ then
   confirmYN "Do you want to install$cyan$bold rust$normal? : [y/N]"
   if [ $? -eq 0 ]; then
     echo "Installing rust"
-    # curl https://sh.rustup.rs -sSf | sh
-    # source $HOME/.cargo/env
+    curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
     echo " $tick Installed Rust"
     echo "$bold The dotfiles have following dependencies: exa fd bat zoxide $normal"
     checkDependency ajeetdsouza/zoxide
