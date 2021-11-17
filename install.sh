@@ -70,6 +70,7 @@ then
   if [ $? -eq 0 ]; then
     echo "Installing rust"
     curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
     echo "$bold Need to install following dependencies: exa fd bat zoxide $normal"
     install_from_git ajeetdsouza/zoxide.git
     install_from_git sharkdp/bat.git

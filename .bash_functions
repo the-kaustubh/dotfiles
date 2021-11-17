@@ -52,7 +52,7 @@ function mkcd() {
 }
 
 function bdiff() {
-  if command -v bat
+  if command -v bat >/dev/null
   then
     git diff --name-only --diff-filter=d | xargs bat --diff
   fi

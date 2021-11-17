@@ -127,10 +127,10 @@ export FZF_CTRL_R_OPTS="--sort --exact"
 [ -f ~/.bindings.bash ] && . ~/.bindings.bash
 [ -f ~/.color_scheme ] && source ~/.color_scheme
 
-PATH=$PATH:/home/kaustubh/Documents/go/bin
-export GOROOT="/home/kaustubh/Documents/go/"
-export GOPATH="/home/kaustubh/Documents/Go/"
-export GOBIN="/home/kaustubh/Documents/Go/bin"
+PATH=$PATH:/home/$USER/Documents/go/bin
+export GOROOT="/home/$USER/Documents/go/"
+export GOPATH="/home/$USER/Documents/Go/"
+export GOBIN="/home/$USER/Documents/Go/bin"
 export GONOPROXY="corelab.mkcl.org"
 export GONOSUMDB="corelab.mkcl.org"
 export GOPRIVATE="corelab.mkcl.org"

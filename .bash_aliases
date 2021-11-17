@@ -51,7 +51,7 @@ alias ctc='xclip -selection clipboard'
 alias fm='nautilus . 1>/dev/null 2>&1 &'
 
 # some more ls aliases
-if command -v exa
+if command -v exa >/dev/null
 then
   alias ll='exa -l'
   alias la='exa -a'
@@ -62,6 +62,7 @@ else
   alias l='ls -CF'
 fi
 
-if command -v bat
+if command -v bat >/dev/null
+then
   alias bat='bat --theme=gruvbox'
 fi
