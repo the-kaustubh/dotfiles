@@ -28,4 +28,7 @@ PI4_IP=''
 PI4_ADDR="http://$PI4_IP"
 
 export EDITOR=nvim
-eval `dircolors /home/kaustubh/.dir_colors/dircolors`
+if command -v dircolors
+then
+  eval `dircolors /home/kaustubh/.dir_colors/dircolors`
+fi

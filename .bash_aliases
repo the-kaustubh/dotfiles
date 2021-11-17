@@ -7,7 +7,6 @@ alias pyserver='python3 -m http.server 9000'
 alias p3='python3'
 alias jfxCom='javac --module-path /usr/share/openjfx/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web'
 alias jfxRun='java --module-path /usr/share/openjfx/lib --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web'
-alias fcat='highlight -O ansi'
 
 # Directories
 alias  ..='cd ..'
@@ -47,11 +46,22 @@ alias gr='cd $(git root)'
 
 alias ardcli='arduino-cli'
 alias code='codium'
-alias bat='bat --theme=gruvbox'
 
-# some more ls aliases
-alias ll='exa -l' # 'ls -AlF'
-alias la='exa -a' # 'ls -A'
-alias l='exa' # 'ls -CF'
 alias ctc='xclip -selection clipboard'
 alias fm='nautilus . 1>/dev/null 2>&1 &'
+
+# some more ls aliases
+if command -v exa
+then
+  alias ll='exa -l'
+  alias la='exa -a'
+  alias l='exa'
+else
+  alias ll='ls -l'
+  alias la='ls -a'
+  alias l='ls -CF'
+fi
+
+if command -v bat
+  alias bat='bat --theme=gruvbox'
+fi
