@@ -44,8 +44,8 @@ function createSymlinks() {
       echo "  $link Creating symlink to $bold$(pwd)/$b$normal"; echo
       ln -s $(pwd)/$b ~/$b
     fi
-
   done
+  source .bashrc
   return 0
 }
 
