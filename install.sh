@@ -77,7 +77,7 @@ function install_from_git() {
   cargo install --path $dirname
   if [ $? -eq 0 ]; then
     echo " $tick Installed $package $1 successfully"
-    # rm -rf $dirname
+    rm -rf $dirname
   fi
   return 0
 }
@@ -103,7 +103,6 @@ then
     curl https://sh.rustup.rs -sSf | sh
     source $HOME/.cargo/env
     echo " $tick Installed Rust"
-    PATH=$PATH:/home/$USER/.cargo/bin
   else
     echo "Skipping rust and dependencies. Using built-in defaults"
   fi
