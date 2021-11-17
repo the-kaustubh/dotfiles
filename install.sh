@@ -85,7 +85,7 @@ function confirmYN() {
   esac
 }
 
-if ! command -v rusc >/dev/null
+if ! command -v rustc >/dev/null
 then
   echo "There are some dependencies that need Rust compiler"
   confirmYN "Do you want to install$cyan$bold rust$normal? : [y/N]"
