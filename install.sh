@@ -11,6 +11,12 @@ purple="$(tput setaf 127)"
 blue="$(tput setaf 105)"
 cyan="$(tput setaf 45)"
 
+tick="✔️ "
+link="🔗 "
+package="📦 "
+trash="🗑️ "
+sparkles="✨ "
+
 branch=$(git branch | grep "*" | awk '{print $2}')
 allfiles=$(git ls-tree -r $branch --name-only | sed '/ignore/d' | sed '/install/d' | sed '/styling/d' | sed '/README/d' )
 
@@ -22,12 +28,11 @@ function createSymlinks() {
     then
       if [[ -f ~/$b ]]
       then
-        echo " Removing $bold$b$normal ..."
+        echo -n " $trash Removing $bold$b$normal ..."
         rm -f ~/$b
-        echo " Removed $bold$b$normal"
+        echo "done"
       fi
-      echo "  Creating symlink to $bold$(pwd)/$b$normal"
-      echo ""
+      echo "  $link Creating symlink to $bold$(pwd)/$b$normal"; echo
       ln -s $(pwd)/$b ~/$b
     fi
 
@@ -35,17 +40,34 @@ function createSymlinks() {
   return 0
 }
 
+function checkDependency() {
+  program_name=$(echo $1 | tr / ' ' | awk '{print $2}')
+  if command -v $program_name >/dev/null
+  then
+    echo " $package Dependency $bold$program_name$normal already satisfied!"
+  else
+    echo " $package $program_name was not found."
+    confirmYN "Do you want to install it : [y/N] "
+    if [ $? -eq 0 ]
+    then
+      install_from_git $1
+    else
+      echo "Skipping $package $program_name"
+    fi
+  fi
+}
+
 function install_from_git() {
   echo "Cloning $1"
-  dirname=$(echo $1 | tr / ' ' | tr '.' ' ' | awk '{ print $2 }')
-  git clone https://github.com/$1 1>/dev/null 2>&1
+  dirname=$(echo $1 | tr / ' ' | awk '{ print $2 }')
+  git clone https://github.com/$1.git 1>/dev/null 2>&1
   if [ $? -eq 0 ]; then
     echo "Cloned $1"
   fi
   echo "Installing $1"
   cargo install --path $dirname
   if [ $? -eq 0 ]; then
-    echo "Installed $1 successfully"
+    echo " $tick Installed $package $1 successfully"
     rm -rf $dirname
   fi
   return 0
@@ -63,21 +85,23 @@ function confirmYN() {
   esac
 }
 
-if ! command -v rust
+if ! command -v rusc >/dev/null
 then
-  echo "You need to have rust installed"
+  echo "There are some dependencies that need Rust compiler"
   confirmYN "Do you want to install$cyan$bold rust$normal? : [y/N]"
   if [ $? -eq 0 ]; then
     echo "Installing rust"
-    curl https://sh.rustup.rs -sSf | sh
-    source $HOME/.cargo/env
-    echo "$bold Need to install following dependencies: exa fd bat zoxide $normal"
-    install_from_git ajeetdsouza/zoxide.git
-    install_from_git sharkdp/bat.git
-    install_from_git sharkdp/fd.git
-    install_from_git ogham/exa.git
+    # curl https://sh.rustup.rs -sSf | sh
+    # source $HOME/.cargo/env
+    echo " $tick Installed Rust"
+    echo "$bold The dotfiles have following dependencies: exa fd bat zoxide $normal"
+    checkDependency ajeetdsouza/zoxide
+    checkDependency sharkdp/bat
+    checkDependency sharkdp/fd
+    checkDependency ogham/exa
+  else
+    echo "Skipping rust and dependencies. Using built-in defaults"
   fi
 fi
 createSymlinks
-echo ""
-echo "$green$bold Installed dotfiles and rust dependencies$normal"
+echo; echo "$green$bold $sparkles Installed dotfiles and rust dependencies$normal"
