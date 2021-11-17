@@ -50,3 +50,7 @@ function zipit() {
 function mkcd() {
   mkdir $1; cd $1;
 }
+
+function bdiff() {
+  git diff --name-only --diff-filter=d | xargs bat --diff
+}

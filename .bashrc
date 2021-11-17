@@ -85,11 +85,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -AlF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -113,7 +108,7 @@ export DENO_INSTALL="/$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # fzf config
-export FZF_DEFAULT_COMMAND='find -L'
+export FZF_DEFAULT_COMMAND='fd -L'
 
 export FZF_TMUX=1
 
@@ -132,7 +127,24 @@ export FZF_CTRL_R_OPTS="--sort --exact"
 [ -f ~/.bindings.bash ] && . ~/.bindings.bash
 [ -f ~/.color_scheme ] && source ~/.color_scheme
 
-PATH=$PATH:/home/kaustubh/Downloads/go/bin
-export GOROOT="/home/kaustubh/Downloads/go/"
+PATH=$PATH:/home/kaustubh/Documents/go/bin
+export GOROOT="/home/kaustubh/Documents/go/"
 export GOPATH="/home/kaustubh/Documents/Go/"
+export GOBIN="/home/kaustubh/Documents/Go/bin"
+export GONOPROXY="corelab.mkcl.org"
+export GONOSUMDB="corelab.mkcl.org"
+export GOPRIVATE="corelab.mkcl.org"
 export GO111MODULE="auto"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(zoxide init bash)"
+
+# function _update_ps1() {
+#     PS1="$($GOPATH/bin/powerline-go -error $?)"
+# }
+# if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+# PROMPT_COMMAND="\_update_ps1; \$PROMPT_COMMAND"
+# # PROMPT_COMMAND=" \$PROMPT_COMMAND"
+# fi

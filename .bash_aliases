@@ -47,3 +47,11 @@ alias gr='cd $(git root)'
 
 alias ardcli='arduino-cli'
 alias code='codium'
+alias bat='bat --theme=gruvbox'
+
+# some more ls aliases
+alias ll='exa -l' # 'ls -AlF'
+alias la='exa -a' # 'ls -A'
+alias l='exa' # 'ls -CF'
+alias ctc='xclip -selection clipboard'
+alias fm='nautilus . 1>/dev/null 2>&1 &'

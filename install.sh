@@ -28,3 +28,4 @@ done
 
 echo ""
 echo "$green$bold Installed dotfiles$normal"
+echo "Need to install following dependencies: exa fd bat zoxide"
