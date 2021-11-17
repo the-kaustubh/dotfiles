@@ -77,7 +77,7 @@ function install_from_git() {
   cargo install --path $dirname
   if [ $? -eq 0 ]; then
     echo " $tick Installed $package $1 successfully"
-    rm -rf $dirname
+    # rm -rf $dirname
   fi
   return 0
 }
