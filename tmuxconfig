@@ -31,13 +31,10 @@ bind r source-file ~/.tmux.conf
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'egel/tmux-gruvbox'
+set -g @plugin 'fcsonline/tmux-thumbs'
+set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'dracula/tmux'
 
 set -g @tmux-gruvbox 'dark'
-# set -g @dracula-show-battery true
-# set -g @dracula-show-weather false
-# set -g @dracula-show-powerline true
-# set -g @dracula-day-month true
-# set -g @dracula-show-left-icon "😎 "
 
 run '~/.tmux/plugins/tpm/tpm'
