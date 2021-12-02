@@ -134,7 +134,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-[ -f ~/.bash_functions ] && . ~/.bash_functions
-[ -f ~/.bash_variables ] && . ~/.bash_variables
+[ -f ~/.sh_aliases ] && . ~/.bash_aliases
+[ -f ~/.sh_functions ] && . ~/.bash_functions
+[ -f ~/.sh_variables ] && . ~/.bash_variables
 # [ -f ~/.bash_prompt ] && . ~/.bash_prompt

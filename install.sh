@@ -35,17 +35,18 @@ function createSymlinks() {
     confirmYN "  Do you want to install $blue$bold$b$normal$questionMark: [y/N]"
     if [ $? -eq 0 ]
     then
-      if [[ -f ~/$b ]]
+      if [[ -f ~/.$b ]]
       then
         echo -n " $trash Removing $bold$b$normal ..."
         rm -f ~/.$b
         echo "done"
       fi
       echo "  $link Creating symlink to $bold$(pwd)/$b$normal"; echo
+      echo "_ln -s $(pwd)/$b ~/.$b"
       ln -s $(pwd)/$b ~/.$b
     fi
   done
-  source .bashrc
+  source ~/.bashrc
   return 0
 }
 
