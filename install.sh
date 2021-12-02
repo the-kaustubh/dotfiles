@@ -38,7 +38,7 @@ function createSymlinks() {
       if [[ -f ~/$b ]]
       then
         echo -n " $trash Removing $bold$b$normal ..."
-        rm -f ~/$b
+        rm -f ~/.$b
         echo "done"
       fi
       echo "  $link Creating symlink to $bold$(pwd)/$b$normal"; echo
