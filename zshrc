@@ -62,14 +62,6 @@ ZSH_THEME="agnoster"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   npm
@@ -134,7 +126,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.sh_aliases ] && . ~/.bash_aliases
-[ -f ~/.sh_functions ] && . ~/.bash_functions
-[ -f ~/.sh_variables ] && . ~/.bash_variables
+[ -f ~/.sh_aliases ] && . ~/.sh_aliases
+[ -f ~/.sh_functions ] && . ~/.sh_functions
+[ -f ~/.sh_variables ] && . ~/.sh_variables
 # [ -f ~/.bash_prompt ] && . ~/.bash_prompt

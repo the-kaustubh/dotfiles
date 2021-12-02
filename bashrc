@@ -120,12 +120,12 @@ export FZF_CTRL_R_OPTS="--sort --exact"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-[ -f ~/.sh_aliases ] && . ~/.bash_aliases
-[ -f ~/.sh_functions ] && . ~/.bash_functions
-[ -f ~/.sh_variables ] && . ~/.bash_variables
-[ -f ~/.prompt ] && . ~/.bash_prompt
-[ -f ~/.bash_bindings ] && . ~/.bindings.bash
-[ -f ~/.color_scheme ] && source ~/.color_scheme
+[ -f ~/.sh_aliases    ] && . ~/.sh_aliases
+[ -f ~/.sh_functions  ] && . ~/.sh_functions
+[ -f ~/.sh_variables  ] && . ~/.sh_variables
+[ -f ~/.prompt        ] && . ~/.prompt
+[ -f ~/.bash_bindings ] && . ~/.bash_bindings
+[ -f ~/.color_scheme  ] && . ~/.color_scheme
 
 PATH=$PATH:/home/$USER/Documents/go/bin
 export GOROOT="/home/$USER/Documents/go/"
