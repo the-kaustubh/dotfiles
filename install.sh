@@ -42,7 +42,6 @@ function createSymlinks() {
         echo "done"
       fi
       echo "  $link Creating symlink to $bold$(pwd)/$b$normal"; echo
-      echo "_ln -s $(pwd)/$b ~/.$b"
       ln -s $(pwd)/$b ~/.$b
     fi
   done
