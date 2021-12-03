@@ -2,13 +2,18 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kaustubh/.oh-my-zsh"
+###
+# # export ZSH="/home/kaustubh/.oh-my-zsh"
+###
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+
+###
+# # ZSH_THEME="agnoster"
+###
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -62,30 +67,34 @@ ZSH_THEME="agnoster"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(
-  git
-  npm
-  node
-  docker
-  docker-compose
-  tmux
-  mongocli
-  fzf
-  zoxide
-  ubuntu
-  github
-  fd
-  heroku
-  golang
-  rust
-  aws
-  emoji
-  vim-interaction
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+###
+# plugins=(
+#   git
+#   npm
+#   node
+#   docker
+#   docker-compose
+#   tmux
+#   mongocli
+#   fzf
+#   zoxide
+#   ubuntu
+#   github
+#   fd
+#   heroku
+#   golang
+#   rust
+#   aws
+#   emoji
+#   vim-interaction
+#   zsh-autosuggestions
+#   zsh-syntax-highlighting
+# )
+###
 
-source $ZSH/oh-my-zsh.sh
+###
+# source $ZSH/oh-my-zsh.sh
+###
 
 # User configuration
 
@@ -113,6 +122,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval "$(starship init zsh)"
+
 PATH=$PATH:/home/$USER/Documents/go/bin
 export GOROOT="/home/$USER/Documents/go/"
 export GOPATH="/home/$USER/Documents/Go/"
@@ -129,4 +140,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.sh_aliases ] && . ~/.sh_aliases
 [ -f ~/.sh_functions ] && . ~/.sh_functions
 [ -f ~/.sh_variables ] && . ~/.sh_variables
-# [ -f ~/.bash_prompt ] && . ~/.bash_prompt
+
+source /home/kaustubh/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/kaustubh/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
