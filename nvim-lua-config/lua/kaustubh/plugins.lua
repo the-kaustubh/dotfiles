@@ -23,6 +23,7 @@ packer.startup(function(use)
   use 'diepm/vim-rest-console'
   use 'tpope/vim-commentary'
   use 'dense-analysis/ale'
+  use 'rhysd/conflict-marker.vim'
   use 'metakirby5/codi.vim'
   use 'preservim/nerdtree'
   use 'wellle/context.vim'

@@ -1,16 +1,11 @@
-###
-# # ZSH_THEME="agnoster"
-###
-
-eval "$(starship init zsh)"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 PATH=$PATH:/home/$USER/Documents/go/bin
 export GOROOT="/home/$USER/Documents/go/"
 export GOPATH="/home/$USER/Documents/Go/"
 export GOBIN="/home/$USER/Documents/Go/bin"
-export GONOPROXY="corelab.mkcl.org"
-export GONOSUMDB="corelab.mkcl.org"
-export GOPRIVATE="corelab.mkcl.org"
 export GO111MODULE="auto"
 
 export NVM_DIR="$HOME/.nvm"
@@ -23,3 +18,6 @@ export NVM_DIR="$HOME/.nvm"
 
 source /home/kaustubh/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/kaustubh/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
