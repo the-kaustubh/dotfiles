@@ -2,19 +2,6 @@ local keymap = vim.keymap
 
 vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
--- Golang Specific
-vim.g.go_fmt_command = "goimports"
-vim.g.go_jump_to_error = 0
-vim.g.go_auto_sameids = 0
-vim.g.go_highlight_types = 1
-vim.g.go_highlight_fields = 1
-vim.g.go_highlight_functions = 1
-vim.g.go_highlight_function_calls = 1
-vim.g.go_highlight_operators = 1
-vim.g.go_highlight_extra_types = 1
-vim.g.go_highlight_generate_tags = 1
-vim.g.go_highlight_build_constraints = 1
-
 -- Leader
 vim.g.mapleader = " "
 keymap.set('n', '<C-s>', ':w<CR>')
@@ -28,6 +15,13 @@ local nnoremap_tbl = {
   ['<leader>fh'] = '<cmd>Telescope help_tags<cr>',
 
   -- COC
+  ['[g'] = '<Plug>(coc-diagnostic-prev)',
+  [']g'] = '<Plug>(coc-diagnostic-next)',
+  ['<leader>a'] = '<Plug>(coc-codeaction-selected)',
+  ['<leader>ac'] = '<Plug>(coc-codeaction)',
+  ['<leader>qf'] = '<Plug>(coc-fix-current)',
+  ['<leader>cl'] = '<Plug>(coc-codelens-action)',
+
   ['<leader>gd'] = '<Plug>(coc-definition)',
   ['<leader>gr'] = '<Plug>(coc-references)',
   ['<leader>gy'] = '<Plug>(coc-type-definition)',
@@ -39,8 +33,8 @@ local nnoremap_tbl = {
   ['<leader>gc'] = ':Git commit<cr>',
   ['<leader>gp'] = ':Git push<cr>',
 
-
   -- Misc
+  ['<c-b>'] = ':NERDTreeToggle<CR>',
   ['<c-p>'] = ':FZF<cr>',
   ['<leader>o'] = ':only<cr>',
   ['<cr>'] = ':nohls<cr>',
@@ -54,6 +48,19 @@ for k,v in pairs(nnoremap_tbl) do
 end
 
 keymap.set('i', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })
+
+keymap.set('x', '<leader>a', '<Plug>(coc-codeaction-selected)', { noremap = true, silent = true })
+
+keymap.set('x', 'if', '<Plug>(coc-funcobj-i)')
+keymap.set('o', 'if', '<Plug>(coc-funcobj-i)')
+keymap.set('x', 'af', '<Plug>(coc-funcobj-a)')
+keymap.set('o', 'af', '<Plug>(coc-funcobj-a)')
+
+keymap.set('x', 'ic', '<Plug>(coc-classobj-i)')
+keymap.set('o', 'ic', '<Plug>(coc-classobj-i)')
+keymap.set('x', 'ac', '<Plug>(coc-classobj-a)')
+keymap.set('o', 'ac', '<Plug>(coc-classobj-a)')
+
 vim.cmd [[
   autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 ]]

@@ -6,7 +6,7 @@ if (not status) then
   return
 end
 
- vim.cmd [[packadd packer.nvim]]
+vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
 
@@ -14,39 +14,29 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'morhetz/gruvbox'
-  use 'nvim-lua/plenary.nvim' -- Common utilities
-
-  use 'majutsushi/tagbar'
-  use 'jiangmiao/auto-pairs'
-  use 'preservim/nerdtree'
-  use 'ryanoasis/vim-devicons'
+  use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
+  use 'jiangmiao/auto-pairs'
+  use 'ryanoasis/vim-devicons'
   use 'nvim-telescope/telescope.nvim'
   use 'tpope/vim-fugitive'
   use 'diepm/vim-rest-console'
   use 'tpope/vim-commentary'
   use 'dense-analysis/ale'
   use 'metakirby5/codi.vim'
-
-  use ({
-    'neoclide/coc.nvim', 
-    run = function() vim.fn["coc#util#install()"]() end,
-  })
-  use ({
-      'junegunn/fzf',
-      run = function() vim.fn["fzf#install()"]() end,
-  })
+  use 'preservim/nerdtree'
+  use 'wellle/context.vim'
+    
+  use 'vim-airline/vim-airline'
   use 'junegunn/fzf.vim'
   use 'dbeniamine/cheat.sh-vim'
-
-  -- use 'honza/vim-snippets'
-  -- use 'SirVer/ultisnips'
+  use 'glepnir/dashboard-nvim'
 
   use 'elzr/vim-json'
-  use ({
-      'fatih/vim-go',
-      run = function() vim.cmd("GoInstallBinaries") end,
-      })
 
+  use ({ 'neoclide/coc.nvim', run = function() vim.fn["coc#util#install()"]() end })
+  use ({ 'junegunn/fzf', run = function() vim.fn["fzf#install()"]() end })
+  use ({ 'fatih/vim-go', run = function() vim.cmd("GoInstallBinaries") end })
+
+  use '/Users/Kaustubh.Murumkar/Documents/cheatsh-go'
 end)
-
