@@ -1,5 +1,6 @@
 #!/bin/bash
 
+limit_temperature=50
 # Styling
 bold="$(tput bold)"
 normal="$(tput sgr0)"
@@ -64,7 +65,7 @@ function get_rpi_temp() {
 		return 0
 	fi
 	temperature="$(vcgencmd measure_temp | cut -d'=' -f 2 | sed "s/'C//" )"
-	if [ 1 -eq $(echo "$temperature < 45" | bc -l)   ]; then
+	if [ 1 -eq $(echo "$temperature < $limit_temperature" | bc -l)   ]; then
 			echo -ne "$green"
 	else
 			echo -ne "$red"
