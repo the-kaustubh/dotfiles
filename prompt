@@ -90,7 +90,7 @@ function git_repos() {
 }
 
 # Initialise prompt
-prompt="$n\u "
+prompt="$n\u@\h "
 
 prompt+="$bold$cyan\$(get_directory)$normal"
 
