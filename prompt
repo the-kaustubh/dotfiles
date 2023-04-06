@@ -100,9 +100,9 @@ prompt+="$bold\$(git_repos)$normal"
 if command -v vcgencmd &>/dev/null
 then
 	# rpi temperature
-	prompt+="$normal$(get_rpi_temp)$normal"
+	prompt+="$normal\$(get_rpi_temp)$normal"
 	# rpi Throttle
-	prompt+="$normal$(get_rpi_throttle)$normal"
+	prompt+="$normal\$(get_rpi_throttle)$normal"
 fi
 
 prompt+="$white$bold $(get_ip)"
